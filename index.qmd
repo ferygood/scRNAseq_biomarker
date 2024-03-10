@@ -1,0 +1,39 @@
+---
+title: "scRNAseq_biomarker"
+author: "Yao-Chung Chen"
+format: 
+  dashboard: 
+    logo: profile.jpg
+    nav-buttons: 
+      - icon: github
+        href: https://github.com/ferygood
+---
+
+In this report, we analyzed Alzheimer's Disease single cell RNA-seq data to find biomarker.
+
+# Get data
+
+The data we are going to use is Alzheimer's Disease mouse data, single nuclei RNA-seq of hippocampus in TAFE3 and TAFE4 mice ([GSE164507](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE164507)). This model is a well-characterized mouse model of tauopathy, P301S Tau transgenic mice expressing floxed APOE-e4 and APOE-e3 alleles.
+
+**Data type**: Droplet-based 3' end single nuclei sequencing with Chromium Single Cell 5' Reagent kits (10x Genomics). The generated scRNAseq libraries were sequenced using Illumina sequencers.
+
+| GEO number | Cells     |
+|------------|-----------|
+| GSM5012427 | FE3       |
+| GSM5012428 | FE4       |
+| GSM5012429 | TAFE3_oil |
+| GSM5012430 | TAFE3_tam |
+| GSM5012431 | TAFE4_oil |
+| GSM5012432 | TAFE4_tam |
+
+```{r eval=FALSE, echo=TRUE}
+library(Seurat)
+FE3 <- Read10X(data.dir = "data/FE3")
+FE4 <- Read10X(data.dir = "data/FE4")
+
+
+```
+
+Load data into Seurat object
+
+# Preprocess
